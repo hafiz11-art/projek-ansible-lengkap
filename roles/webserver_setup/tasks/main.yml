@@ -1,0 +1,36 @@
+---
+# tasks file for webserver_setup
+- name: 1. Update cache dan install Nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: yes
+  become: yes # 'become: yes' sama dengan 'sudo'
+
+- name: 2. Buat struktur direktori untuk deployment
+  ansible.builtin.file:
+    path: "/var/www/my-static-site/{{ item }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: '0755'
+  loop: # Lakukan tugas ini berulang untuk setiap 'item'
+    - releases
+    - shared
+  become: yes
+
+- name: 3. Salin template konfigurasi Nginx
+  ansible.builtin.template:
+    src: static-site.conf.j2
+    dest: /etc/nginx/sites-available/my-static-site
+  become: yes
+  notify: Restart Nginx # Jika file ini berubah, panggil handler "Restart Nginx"
+
+- name: 4. Aktifkan site dan hapus link default
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/my-static-site
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+    force: yes
+  become: yes
+  notify: Restart Nginx

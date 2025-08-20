@@ -1,0 +1,4 @@
+- name: Deploy Versi Terbaru Website
+  hosts: webservers
+  roles:
+    - role: deploy_static_site

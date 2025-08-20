@@ -1,0 +1,38 @@
+---
+# tasks file for deploy_static_site
+- name: 1. Dapatkan timestamp untuk nama rilis
+  ansible.builtin.command: date +%Y%m%d%H%M%S
+  register: timestamp_result
+  delegate_to: localhost
+
+- name: 2. Simpan path rilis sebagai variabel
+  ansible.builtin.set_fact:
+    release_path: "/var/www/my-static-site/releases/{{ timestamp_result.stdout }}"
+
+- name: 3. Buat folder rilis baru di server
+  ansible.builtin.file:
+    path: "{{ release_path }}"
+    state: directory
+    mode: '0755'
+  become: yes
+
+- name: 4. Salin file website ke folder rilis baru
+  ansible.posix.synchronize:
+    src: "{{ playbook_dir }}/website/"
+    dest: "{{ release_path }}/"
+    archive: yes
+  become: yes
+
+- name: 5. Ganti symlink 'current' ke rilis terbaru (Atomic Switch!)
+  ansible.builtin.file:
+    src: "{{ release_path }}"
+    dest: /var/www/my-static-site/current
+    state: link
+    force: yes
+  become: yes
+
+- name: 6. Bersihkan rilis lama (simpan 5 terakhir)
+  ansible.builtin.shell: "ls -1dt /var/www/my-static-site/releases/* | tail -n +6 | xargs --no-run-if-empty rm -rf"
+  register: cleanup
+  changed_when: cleanup.stdout != ""
+  become: yes

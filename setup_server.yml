@@ -1,0 +1,4 @@
+- name: Menyiapkan Server Web dari Awal
+  hosts: webservers # Targetnya adalah grup [webservers] di inventory
+  roles:
+    - role: webserver_setup # Jalankan role ini

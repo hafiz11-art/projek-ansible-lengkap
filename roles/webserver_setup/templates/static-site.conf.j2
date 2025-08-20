@@ -1,0 +1,12 @@
+server {
+    listen 80;
+    server_name _;
+
+    # Web root menunjuk ke symlink 'current', bukan folder rilis langsung
+    root /var/www/my-static-site/current;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
