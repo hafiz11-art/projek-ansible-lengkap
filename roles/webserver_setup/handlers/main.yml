@@ -1,2 +1,5 @@
----
-# handlers file for roles/webserver_setup
+- name: Restart Nginx   # <--- Bandingkan dengan yang di atas
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+  become: yes
