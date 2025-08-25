@@ -14,14 +14,33 @@
     <header>
         <div class="container">
             <h1 class="logo">Tim SOLID</h1>
-            <nav>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">Profil</a></li>
-                    <li><a href="#members">Anggota</a></li>
-                    <li><a href="#projects">Proyek</a></li>
-                </ul>
-            </nav>
+
+            <div class="nav-wrapper">
+                <nav>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">Profil</a></li>
+                        <li><a href="#members">Anggota</a></li>
+                        <li><a href="#projects">Proyek</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </nav>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="theme-checkbox">
+                        <input type="checkbox" id="theme-checkbox" />
+                        <div class="slider round">
+                            <span class="sun-icon">☀️</span>
+                            <span class="moon-icon">🌙</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            
+            <button class="hamburger-menu" aria-label="Buka Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -48,17 +67,17 @@
                 <h2 class="section-title">Anggota Tim</h2>
                 <div class="team-grid">
                     <div class="member-card">
-                        <div class="member-photo" style="background-color: #e0e0e0;"></div>
+                        <img src="https://via.placeholder.com/150" alt="Foto profil Hafizh" class="member-photo">
                         <h3>Hafizh</h3>
                         <p class="role">SysOps Administration Server</p>
                     </div>
                     <div class="member-card">
-                        <div class="member-photo" style="background-color: #d1c4e9;"></div>
+                        <img src="https://via.placeholder.com/150" alt="Foto profil Alfian" class="member-photo">
                         <h3>Alfian</h3>
                         <p class="role">SysOps Administration Server</p>
                     </div>
                     <div class="member-card">
-                        <div class="member-photo" style="background-color: #c5cae9;"></div>
+                        <img src="https://via.placeholder.com/150" alt="Foto profil Arya" class="member-photo">
                         <h3>Arya</h3>
                         <p class="role">SysOps Administration Server</p>
                     </div>
@@ -74,21 +93,17 @@
                         <h3>Otomatisasi IP Scan dengan OpenVAS GVM</h3>
                         <p>Mengembangkan skrip untuk menjalankan pemindaian kerentanan (vulnerability scanning) pada rentang IP secara terjadwal dan menghasilkan laporan otomatis.</p>
                         <div class="project-tags">
-                            <span>OpenVAS</span>
-                            <span>Bash Script</span>
-                            <span>Linux</span>
-                            <span>Keamanan Jaringan</span>
+                            <span>OpenVAS</span><span>Bash Script</span><span>Linux</span><span>Keamanan Jaringan</span>
                         </div>
+                        <a href="#" class="project-link">Lihat Detail &rarr;</a>
                     </div>
                     <div class="project-card">
                         <h3>Otomatisasi Web Scan dengan OWASP ZAP</h3>
                         <p>Membuat alur kerja otomatis untuk memindai keamanan aplikasi web menggunakan OWASP ZAP API, terintegrasi langsung dengan proses development.</p>
                         <div class="project-tags">
-                            <span>OWASP ZAP</span>
-                            <span>Python</span>
-                            <span>API</span>
-                            <span>Keamanan Web</span>
+                            <span>OWASP ZAP</span><span>Python</span><span>API</span><span>Keamanan Web</span>
                         </div>
+                        <a href="#" class="project-link">Lihat di GitHub &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -98,12 +113,23 @@
             <div class="container">
                 <h2 class="section-title">Dokumentasi Kegiatan</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-item" style="background-color: #cfd8dc;"></div>
-                    <div class="gallery-item" style="background-color: #d7ccc8;"></div>
-                    <div class="gallery-item" style="background-color: #f0f4c3;"></div>
-                    <div class="gallery-item" style="background-color: #c8e6c9;"></div>
-                    <div class="gallery-item" style="background-color: #b2dfdb;"></div>
-                    <div class="gallery-item" style="background-color: #ffecb3;"></div>
+                    <img src="https://via.placeholder.com/400x300/cfd8dc/333?text=Kegiatan+1" alt="Dokumentasi kegiatan 1" class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/d7ccc8/333?text=Kegiatan+2" alt="Dokumentasi kegiatan 2" class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/f0f4c3/333?text=Kegiatan+3" alt="Dokumentasi kegiatan 3" class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/c8e6c9/333?text=Kegiatan+4" alt="Dokumentasi kegiatan 4" class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/b2dfdb/333?text=Kegiatan+5" alt="Dokumentasi kegiatan 5" class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/ffecb3/333?text=Kegiatan+6" alt="Dokumentasi kegiatan 6" class="gallery-item">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Hubungi Kami</h2>
+                <p class="contact-text">Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.</p>
+                <div class="contact-info">
+                    <p>📧 Email: <a href="mailto:solid-team@email.com">solid-team@email.com</a></p>
+                    <p>📍 Lokasi: PT. Vascomm Solusi Teknologi</p>
                 </div>
             </div>
         </section>
@@ -112,9 +138,50 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Tim PKL SOLID - Universitas Teknologi Bangsa</p>
+            <p>&copy; <span id="year"></span> Tim PKL SOLID - Universitas Teknologi Bangsa</p>
         </div>
     </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- LOGIKA UNTUK TAHUN DINAMIS DI FOOTER ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- LOGIKA UNTUK MENU HAMBURGER ---
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navWrapper = document.querySelector('.nav-wrapper');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navWrapper.classList.toggle('active');
+        });
+
+        // --- LOGIKA UNTUK MODE GELAP/TERANG ---
+        const themeToggle = document.getElementById('theme-checkbox');
+        
+        // Cek tema yang tersimpan di localStorage saat halaman dimuat
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.body.classList.add(currentTheme);
+            if (currentTheme === 'dark-mode') {
+                themeToggle.checked = true;
+            }
+        }
+
+        // Listener saat tombol di-klik
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.remove('light-mode');
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
